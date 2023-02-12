@@ -1,0 +1,16 @@
+
+<div class="box">BOX</div>
+
+<script>
+  const box = document.querySelector(".box");
+
+  function animateBox() {
+    box.style.left = "200px";
+    box.style.top = "200px";
+    box.style.backgroundColor = "blue";
+    box.style.width = "100px";
+    box.style.height = "100px";
+  }
+
+  box.addEventListener("click", animateBox);
+</script>
