@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example of accessing a json-server API</title>
+  </head>
+  <body>
+    <h1>List of users</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+      async function fetchUsers() {
+        const response = await fetch("http://localhost:3000/users");
+        const users = await response.json();
+        return users;
+      }
+
+      async function displayUsers() {
+        const users = await fetchUsers();
+        const userList = document.getElementById("user-list");
+        users.forEach(user => {
+          const li = document.createElement("li");
+          li.innerHTML = `${user.name} (${user.email})`;
+          userList.appendChild(li);
+        });
+      }
+
+      displayUsers();
+    </script>
+  </body>
+</html>
