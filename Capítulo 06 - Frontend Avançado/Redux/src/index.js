@@ -1,4 +1,8 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import './style.css';
+
 
 const counterSlice = createSlice({
   name: "counter",
@@ -15,12 +19,24 @@ const counterSlice = createSlice({
   },
 });
 
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, counterSlice.reducer);
+
 const { increment, decrement } = counterSlice.actions;
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer,
+    counter: persistedReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+persistStore(store);
 
 store.subscribe(() => {
   const { counter } = store.getState();

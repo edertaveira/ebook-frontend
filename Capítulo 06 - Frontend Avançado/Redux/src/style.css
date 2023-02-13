@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 200px;
+  margin: auto;
+}
+
+.container button {
+  border: 1px solid #ddd;
+  background: #efefef;
+  padding: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#counterValue {
+  font-size: 5em;
+}

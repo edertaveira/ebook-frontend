@@ -12,10 +12,13 @@
   "license": "ISC",
   "devDependencies": {
     "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "style-loader": "^3.3.1"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.2"
+    "@reduxjs/toolkit": "^1.9.2",
+    "redux-persist": "^6.0.0"
   }
 }
